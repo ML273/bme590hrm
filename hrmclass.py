@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib as mpl
 import numpy as np
 
 class HrmClass():
@@ -26,3 +27,24 @@ class HrmClass():
         """int: number of detected beats in the strip"""
         self.beats = None
         """numpy array of times when a beat occurred"""
+        self.minMaxVoltage()
+        self.duration()
+        self.beat_times()
+
+    def minMaxVoltage(self):
+        """
+        """
+        Minimum = min(self.voltage)
+        Maximum = max(self.voltage)
+        self.voltage_extremes = (Minimum, Maximum)
+
+    def duration(self):
+        """
+        """
+        lastindex = len(self.time)-1
+        self.duration = self.time[lastindex]-self.time[0]
+
+    def beat_times(self):
+        """
+        """
+        # self.beats = 
