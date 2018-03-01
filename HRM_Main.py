@@ -2,26 +2,19 @@
 import pandas as pd
 
 def main():
-    filenames = collect_csv_file()
+    filenames = collect_csv()
     for files in filenames:
-        temp = pd.read_csv(files, delimiter=',')
+        temp = pd.read_csv(files, delimiter=',', names=['time', 'volt'])
 
-def collect_csv_file():
-    """Function that collects all the .csv filenames in the data folder.
-
-    :returns: list(str) of all .csv filenames
-    """
-    #for future projects, if not csv, function that finds the extension can be made
-    import glob
-    filenames = glob.glob('data/*csv')
-    return filenames
-
-def processCSV():
-    from processCSV import processCSV
+def collect_csv():
+    from collect_csv_file import collect_csv_file
+    return collect_csv_file()
 
 def createHRM_Class():
     pass
 
-#not sure what the code below is for
+def createJSON():
+    pass
+
 if __name__ == '__main__':
     main()
