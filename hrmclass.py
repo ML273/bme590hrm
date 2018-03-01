@@ -13,9 +13,9 @@ class HrmClass():
         self.name = name
         """str: name of file"""
         self.time = time
-        """list(float): time vector for the ECG strip"""
+        """numpy array(float): time vector for the ECG strip"""
         self.voltage = voltage
-        """list(float): voltage vector for the ECG strip"""
+        """numpy array(float): voltage vector for the ECG strip"""
         self.beats = None
         """numpy array of times when a beat occurred"""
         self.mean_hr_bpm = None
