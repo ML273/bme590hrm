@@ -1,5 +1,7 @@
 #the main code that will import the files
 import pandas as pd
+import os
+import numpy as np
 
 def main():
     filenames = collect_csv()
@@ -13,10 +15,9 @@ def collect_csv():
     return collect_csv_file()
 
 def createHRM_Class(name, data):
-    import os
     from hrmclass import HrmClass
     path, ext = os.path.splitext(name)
-    return HrmClass(path, data.time, data.volt)
+    return HrmClass(path, np.array(data.time), np.array(data.volt))
 
 def createJSON():
     pass
