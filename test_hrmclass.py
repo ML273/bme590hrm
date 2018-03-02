@@ -24,7 +24,7 @@ def test_MinMaxVoltage():
     minimum = -0.68
     maximum = 1.05
     testTuple = testClass.voltage_extremes
-    assert (abs(testTuple[0] - minimum) < 0.005) & (abs(testTuple[1] - maximum) < 0.005)
+    assert (abs(testTuple[0] - minimum) < 0.005) and (abs(testTuple[1] - maximum) < 0.005)
 
 def test_duration():
     from hrmclass import HrmClass
