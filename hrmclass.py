@@ -1,9 +1,11 @@
 import logging
 
+
 def logs():
     # https://fangpenlin.com/posts/2012/08/26/ \
     # good-logging-practice-in-python/
     logger = logging.getLogger(__name__)
+
 
 class HrmClass():
     """Class that takes in name of original file and time and voltage \
