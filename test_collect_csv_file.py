@@ -8,10 +8,13 @@ def test_exceptions():
     with pytest.raises(ValueError, message="Expecting ValueError"):
         test = math.sqrt(-1)
 
+
 def test_filenames_not_empty():
     from collect_csv_file import collect_csv_file
     names = collect_csv_file()
-    assert names != None
+    if names is not None:
+        assert True
+
 
 def test_list_of_strings():
     from collect_csv_file import collect_csv_file
