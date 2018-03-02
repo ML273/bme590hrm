@@ -2,9 +2,6 @@ class HrmClass():
     """Class description here
 
     """
-    # pylint: disable = too-many-instance-attributes
-    # Eight is fine.
-
     def __init__(self, name, time, voltage):
         # import numpy as np
         # unsure whether numpy needs to be imported to have numpy array for time and voltage
@@ -77,7 +74,7 @@ class HrmClass():
         # Therefore, defining a beat as a peak within 20% amplitude
         # the greatest correlation peak
         self.beats = indices
-
+        self.num_beats = indices.size
 
 
 
