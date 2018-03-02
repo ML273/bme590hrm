@@ -43,3 +43,9 @@ def test_number_of_beats():
 def test_mean_hr_bpm():
     from hrmclass import HrmClass
     global testClass
+    testClass.interval = [5, 16]
+    beat = 14
+    bpm = beat/11*60
+    assert abs(testClass.mean_hr_bpm - bpm) < 5
+
+

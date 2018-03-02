@@ -27,7 +27,7 @@ class HrmClass():
         self.minMaxVoltage()
         self.how_long()
         self.beat_times()
-
+        self.mean_bpm()
 
     def minMaxVoltage(self):
         """Function that gives the minimum and maximum voltage signal from the EKG
@@ -94,7 +94,7 @@ class HrmClass():
         dur = last - first
         count = 0
         for time in self.beats:
-            while time >= first and time <= last:
+            if time >= first and time <= last:
                 count += 1
         self.mean_hr_bpm = count*60/dur #for bpm average
 
