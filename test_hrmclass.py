@@ -24,7 +24,9 @@ def test_MinMaxVoltage():
     minimum = -0.68
     maximum = 1.05
     testTuple = testClass.voltage_extremes
-    assert (abs(testTuple[0] - minimum) < 0.005) and (abs(testTuple[1] - maximum) < 0.005)
+    assert (abs(testTuple[0] - minimum) < 0.005) \
+        and (abs(testTuple[1] - maximum) < 0.005)
+
 
 def test_duration():
     from hrmclass import HrmClass
@@ -47,5 +49,3 @@ def test_mean_hr_bpm():
     beat = 14
     bpm = beat/11*60
     assert abs(testClass.mean_hr_bpm - bpm) < 5
-
-
