@@ -19,9 +19,6 @@ class HrmClass():
 
     def __init__(self, name, time, voltage, interval=[0, 0], logger=None):
         self.logger = logging.getLogger(__name__)
-        self.logger.basicConfig(filename='hrmclass.log', mt='%(asctime)s \
-        %(message)s', datefmt='%m/%d/%Y %I:%M:%S %pi')
-        self.logger.info('Begin Class Creation')
         self.logger.info('Initialize Class')
         self.name = name
         """str: name of file"""
