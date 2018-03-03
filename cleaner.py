@@ -10,7 +10,7 @@ def cleaner(df):
     """
     import logging
     logging.basicConfig(
-        filename="datacleaner.log", format='%(levelname)s \
+        filename='datacleaner.log', format='%(levelname)s \
         %(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %pi')
     logging.info('Begin Cleaning')
     logging.info('Attempt importing')
