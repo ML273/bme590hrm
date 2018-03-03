@@ -17,11 +17,38 @@ class HrmClass():
         attr2 (numpy.array(float)): time vector for the ECG strip
         attr3 (numpy.array(float)): voltage vector for the ECG strip
         attr4 (list(float)): [begin time, end time] of interval in sec
+
+    :raises TypeError: error raised if any input is not of correct type
+    :raises ValueError: error raised if any input does not have right value
     """
 
     def __init__(self, name, time, voltage, interval=[0, 0], logger=None):
         self.logger = logging.getLogger(__name__)
         self.logger.info('Initialize Class')
+        nptype = "<class 'numpy.ndarray'>"
+        try:
+            str(type(name)) == "<class 'str'>"
+            str(type(time) == nptype)
+            str(type(voltage) == nptype)
+            str(type(interval)) == "<class 'list'>"
+        except TypeError:
+            self.logger.error('Check that your variables have correct type')
+            print('name is type:' + type(name))
+            print('time is type:' + type(time))
+            print('voltage is type:' + type(voltage))
+            print('interval is type:' + type(interval))
+        try:
+            time.size == voltage.size
+        except ValueError:
+            self.logger.warning(
+                'Your time and voltage vectors have different sizes!'
+            )
+        try:
+            len(interval) == 2
+        except ValueError:
+            self.logger.error(
+                'Your interval input is not of length 2!'
+            )
         self.name = name
         """str: name of file"""
         self.time = time
@@ -97,7 +124,7 @@ class HrmClass():
         # since other side not needed (same function -> symmetrical halves)
         self.logger.info('Begin rough heartrate estimation')
         count = 0
-        for i, nvolt in enumerate(volt[0:volt.size]):
+        for i, nvolt in enumerate(volt[0:volt.size-1]):
             if volt[i] < 0 and volt[i+1] > 0:
                 count += 1
         max_heartrate = count + 3
