@@ -49,7 +49,7 @@ def cleaner(df):
             logging.info(
                 'Changing index ' + str(j) + ' from ' + str(v) + 'to 0.')
             df.volt[j] = 0
-        if v > 300:
+        elif float(v) > 300:
             logging.warning('The ECG has values outside of normal range.')
     logging.info('End of converting bad data and NaN')
     logging.info('Create numpy arrays')
