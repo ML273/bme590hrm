@@ -1,7 +1,7 @@
 def collect_csv_file(path):
     """Function that collects all the .csv filenames in the data folder.
 
-    :param list: Input that is a string for a directory path
+    :param path: Input that is a string for a directory path
 
     :returns: list(str) of all .csv filenames
     :raises ImportError: error raised if import module not found

@@ -1,0 +1,196 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>hrmclass module &#8212; bme590hrm v1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-hrmclass">
+<span id="hrmclass-module"></span><h1>hrmclass module<a class="headerlink" href="#module-hrmclass" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="hrmclass.HrmClass">
+<em class="property">class </em><code class="descclassname">hrmclass.</code><code class="descname">HrmClass</code><span class="sig-paren">(</span><em>name, time, voltage, interval=[0, 0], logger=None</em><span class="sig-paren">)</span><a class="headerlink" href="#hrmclass.HrmClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class that takes in name of original file and time and voltage     vectors and then calculates various heart rate monitor-related     data.</p>
+<dl class="docutils">
+<dt>Attributes:</dt>
+<dd>attr1 (str): name of file
+attr2 (numpy.array(float)): time vector for the ECG strip
+attr3 (numpy.array(float)): voltage vector for the ECG strip
+attr4 (list(float)): [begin time, end time] of interval in sec</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>TypeError</strong> – error raised if any input is not of correct type</li>
+<li><strong>ValueError</strong> – error raised if any input does not have right value</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="hrmclass.HrmClass.beat_times">
+<code class="descname">beat_times</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hrmclass.HrmClass.beat_times" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that gives a numpy array of the times when a beat occurred by         using normalized autocorrelation.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hrmclass.HrmClass.beats">
+<code class="descname">beats</code><em class="property"> = None</em><a class="headerlink" href="#hrmclass.HrmClass.beats" title="Permalink to this definition">¶</a></dt>
+<dd><p>numpy array of times when a beat occurred</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hrmclass.HrmClass.duration">
+<code class="descname">duration</code><em class="property"> = None</em><a class="headerlink" href="#hrmclass.HrmClass.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>float: time duration of the EKG strip</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hrmclass.HrmClass.how_long">
+<code class="descname">how_long</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hrmclass.HrmClass.how_long" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that gives the duration (sec) of the EKG</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hrmclass.HrmClass.interval">
+<code class="descname">interval</code><em class="property"> = None</em><a class="headerlink" href="#hrmclass.HrmClass.interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>list(float): [begin, end] of interval in sec</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hrmclass.HrmClass.mean_bpm">
+<code class="descname">mean_bpm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hrmclass.HrmClass.mean_bpm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that estimates average BPM within self.interval</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hrmclass.HrmClass.mean_hr_bpm">
+<code class="descname">mean_hr_bpm</code><em class="property"> = None</em><a class="headerlink" href="#hrmclass.HrmClass.mean_hr_bpm" title="Permalink to this definition">¶</a></dt>
+<dd><p>float: estimated average heart rate over a user-specified                 number of minutes (can choose a default interval)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hrmclass.HrmClass.minMaxVoltage">
+<code class="descname">minMaxVoltage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hrmclass.HrmClass.minMaxVoltage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function that gives the minimum and maximum voltage signal from the EKG</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hrmclass.HrmClass.name">
+<code class="descname">name</code><em class="property"> = None</em><a class="headerlink" href="#hrmclass.HrmClass.name" title="Permalink to this definition">¶</a></dt>
+<dd><p>str: name of file</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hrmclass.HrmClass.num_beats">
+<code class="descname">num_beats</code><em class="property"> = None</em><a class="headerlink" href="#hrmclass.HrmClass.num_beats" title="Permalink to this definition">¶</a></dt>
+<dd><p>int: number of detected beats in the strip</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hrmclass.HrmClass.time">
+<code class="descname">time</code><em class="property"> = None</em><a class="headerlink" href="#hrmclass.HrmClass.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>numpy array(float): time vector for the ECG strip</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hrmclass.HrmClass.voltage">
+<code class="descname">voltage</code><em class="property"> = None</em><a class="headerlink" href="#hrmclass.HrmClass.voltage" title="Permalink to this definition">¶</a></dt>
+<dd><p>numpy array(float): voltage vector for the ECG strip</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="hrmclass.HrmClass.voltage_extremes">
+<code class="descname">voltage_extremes</code><em class="property"> = None</em><a class="headerlink" href="#hrmclass.HrmClass.voltage_extremes" title="Permalink to this definition">¶</a></dt>
+<dd><p>tuple(float): containing minimum and maximum lead voltages</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="hrmclass.logs">
+<code class="descclassname">hrmclass.</code><code class="descname">logs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hrmclass.logs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/hrmclass.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Marianne Lee.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="_sources/hrmclass.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
