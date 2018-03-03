@@ -52,7 +52,7 @@ def HRM_Main(direcLocation='data/', interval=[0, 0]):
                 first time point of the ECG. Program will default to \
                 calculating from beginning of time vector.')
             interval[0] = clean_time[0]
-        if clean_time[len(clean_time - 1)] < interval[1]:
+        if clean_time[len(clean_time) - 1] < interval[1]:
             logging.warning(
                 'The second number in the user interval is greater than \
                 the last time point of the ECG. Program will default to \
