@@ -33,10 +33,10 @@ class HrmClass():
             str(type(interval)) == "<class 'list'>"
         except TypeError:
             self.logger.error('Check that your variables have correct type')
-            print('name is type:' + str(type(name)))
-            print('time is type:' + str(type(time)))
-            print('voltage is type:' + str(type(voltage)))
-            print('interval is type:' + str(type(interval)))
+            self.logger.debug('name is type:' + str(type(name)))
+            self.logger.debug('time is type:' + str(type(time)))
+            self.logger.debug('voltage is type:' + str(type(voltage)))
+            self.logger.debug('interval is type:' + str(type(interval)))
         try:
             time.size == voltage.size
         except ValueError:
