@@ -25,15 +25,23 @@ def make_json_file(hrm_info):
         str(type(hrm_info)) == classCheck
     except TypeError:
         logging.error('You did not give an input of class HrmClass')
+    logging.info('Set the labels for .json file')
     labels = ['time', 'voltage', 'voltage_extremes', 'num_beats', \
         'mean_hr_bpm', 'interval', 'duration', 'beats']
+    logging.info('Set the values for .json file')
     values = [
         hrm_info.time.tolist(), hrm_info.voltage.tolist(), hrm_info.voltage_extremes, \
         hrm_info.num_beats, hrm_info.mean_hr_bpm, hrm_info.interval, \
         hrm_info.duration, hrm_info.beats.tolist()]
+    logging.info('Create dictionary for .json file')
     data = dict.fromkeys(labels)
     OutputFile = hrm_info.name + '.json'
+    logging.info('Begin cycling through labels and values')
     for i, info in enumerate(labels):
         data[labels[i]] = values[i]
+    logging.info('Open file to write')
     with open(OutputFile, 'w') as outfile:
         json.dump(data, outfile)
+    logging.info('Finish Writing .json File')
+    return OutputFile
+    logging.info('Return output file name')

@@ -25,7 +25,7 @@ def createHRM_Class(name, data):
 def createJSON(hrm_info):
     from hrmclass import HrmClass
     from make_json_file import make_json_file
-    make_json_file(hrm_info)
+    name = make_json_file(hrm_info)
 
 if __name__ == '__main__':
     main()
