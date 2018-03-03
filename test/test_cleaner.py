@@ -10,27 +10,35 @@ def test_exceptions():
 
 
 def test_float():
+    import sys
+    sys.path.append('../')
     from cleaner import isfloat
     assert(not isfloat('string'))
 
 
 def test_float2():
+    import sys
+    sys.path.append('../')
     from cleaner import isfloat
     assert(isfloat('456'))
 
 
 def test_float3():
+    import sys
+    sys.path.append('../')
     from cleaner import isfloat
     import numpy as np
     assert(isfloat(np.nan))
 
 
 def test_clean():
+    import sys
+    sys.path.append('../')
     import glob
     import numpy as np
     import pandas as pd
     from cleaner import cleaner, isfloat
-    file1 = 'data/test_data30.csv'
+    file1 = '../data/test_data30.csv'
     df = pd.read_csv(file1, names=['time', 'volt'])
     nptime, npvolt = cleaner(df)
     assert abs(sum(nptime) - 199976.1) < 0.2 \

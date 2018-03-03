@@ -1,10 +1,14 @@
-from hrmclass import HrmClass
-import pandas as pd
-import numpy as np
-import glob
-file1 = glob.glob('data/*csv')[0]
-df = pd.read_csv(file1, names=['time', 'volt'])
-testClass = HrmClass('test', np.array(df.time), np.array(df.volt))
+def setup():
+    import sys
+    sys.path.append('../')
+    from hrmclass import HrmClass
+    import pandas as pd
+    import numpy as np
+    import glob
+    file1 = glob.glob('../data/*csv')[0]
+    df = pd.read_csv(file1, names=['time', 'volt'])
+    testClass = HrmClass('test', np.array(df.time), np.array(df.volt))
+    return testClass
 
 
 def test_exceptions():
@@ -19,8 +23,10 @@ def test_exceptions():
 
 
 def test_MinMaxVoltage():
+    import sys
+    sys.path.append('../')
     from hrmclass import HrmClass
-    global testClass
+    testClass = setup()
     minimum = -0.68
     maximum = 1.05
     testTuple = testClass.voltage_extremes
@@ -29,22 +35,28 @@ def test_MinMaxVoltage():
 
 
 def test_duration():
+    import sys
+    sys.path.append('../')
     from hrmclass import HrmClass
-    global testClass
+    testClass = setup()
     testTime = 27.775
     assert abs(testClass.duration - testTime) < 0.001
 
 
 def test_number_of_beats():
+    import sys
+    sys.path.append('../')
     from hrmclass import HrmClass
-    global testClass
+    testClass = setup()
     testBeat = 35
     assert abs(testClass.num_beats - testBeat) < 3
 
 
 def test_mean_hr_bpm():
+    import sys
+    sys.path.append('../')
     from hrmclass import HrmClass
-    global testClass
+    testClass = setup()
     testClass.interval = [5, 16]
     beat = 14
     bpm = beat/11*60

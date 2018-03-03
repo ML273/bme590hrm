@@ -10,6 +10,8 @@ def test_exceptions():
 
 
 def test_filenames_not_empty():
+    import sys
+    sys.path.append('../')
     from collect_csv_file import collect_csv_file
     names = collect_csv_file('data/')
     if names is not None:
@@ -17,6 +19,8 @@ def test_filenames_not_empty():
 
 
 def test_list_of_strings():
+    import sys
+    sys.path.append('../')
     from collect_csv_file import collect_csv_file
     names = collect_csv_file('data/')
     tester = ['string', 'string3']
