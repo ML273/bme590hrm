@@ -28,8 +28,8 @@ class HrmClass():
         nptype = "<class 'numpy.ndarray'>"
         try:
             str(type(name)) == "<class 'str'>"
-            str(type(time) == nptype)
-            str(type(voltage) == nptype)
+            str(type(time)) == nptype
+            str(type(voltage)) == nptype
             str(type(interval)) == "<class 'list'>"
         except TypeError:
             self.logger.error('Check that your variables have correct type')
