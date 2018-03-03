@@ -38,7 +38,7 @@ def test_clean():
     import numpy as np
     import pandas as pd
     from cleaner import cleaner, isfloat
-    file1 = '../data/test_data30.csv'
+    file1 = 'data/test_data30.csv'
     df = pd.read_csv(file1, names=['time', 'volt'])
     nptime, npvolt = cleaner(df)
     assert abs(sum(nptime) - 199976.1) < 0.2 \

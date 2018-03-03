@@ -6,7 +6,7 @@ def setup():
     import numpy as np
     import glob
     import os
-    file1 = glob.glob('../data/*csv')[1]
+    file1 = glob.glob('data/test_data2.csv')
     df = pd.read_csv(file1, names=['time', 'volt'])
     path, ext = os.path.splitext(file1)
     testClass = HrmClass(path, np.array(df.time), np.array(df.volt))
