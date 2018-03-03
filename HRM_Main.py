@@ -9,7 +9,8 @@ def main():
     filenames = collect_csv(direcLocation)
     for files in filenames:
         temp = pd.read_csv(files, delimiter=',', names=['time', 'volt'])
-        hrm_info = createHRM_Class(files, temp)
+        clean_time, clean_volt = datacleaner(temp)
+        hrm_info = createHRM_Class(files, clean_time, clean_volt)
         tempor = 'testfolder/'
         createJSON(hrm_info)
 
@@ -19,10 +20,10 @@ def collect_csv(path):
     return collect_csv_file(path)
 
 
-def createHRM_Class(name, data):
+def createHRM_Class(name, time, volt):
     from hrmclass import HrmClass
     path, ext = os.path.splitext(name)
-    return HrmClass(path, np.array(data.time), np.array(data.volt))
+    return HrmClass(path, time, volt)
 
 
 def createJSON(hrm_info):
