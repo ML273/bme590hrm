@@ -1,7 +1,6 @@
-def make_json_file(path, hrm_info):
+def make_json_file(hrm_info):
     """Outputs a .JSON file with information from the HrmClass
 
-    :param path: String that gives directions to .JSON file destination
     :param hrm_info: HrmClass object with information created in \
     hrmclass.py
 
@@ -26,18 +25,14 @@ def make_json_file(path, hrm_info):
         str(type(hrm_info)) == classCheck
     except TypeError:
         logging.error('You did not give an input of class HrmClass')
-    try:
-        type(path) == type('somestring')
-    except TypeError:
-        logging.error('Your directory path is not a string')
     labels = ['time', 'voltage', 'voltage_extremes', 'num_beats', \
         'mean_hr_bpm', 'interval', 'duration', 'beats']
     values = [
-        hrm_info.time, hrm_info.voltage, hrm_info.voltage_extremes, \
+        hrm_info.time.tolist(), hrm_info.voltage.tolist(), hrm_info.voltage_extremes, \
         hrm_info.num_beats, hrm_info.mean_hr_bpm, hrm_info.interval, \
-        hrm_info.duration, hrm_info.beats]
+        hrm_info.duration, hrm_info.beats.tolist()]
     data = dict.fromkeys(labels)
-    OutputFile = path + hrm_info.name + '.json'
+    OutputFile = hrm_info.name + '.json'
     for i, info in enumerate(labels):
         data[labels[i]] = values[i]
     with open(OutputFile, 'w') as outfile:
