@@ -1,5 +1,7 @@
-def collect_csv_file():
+def collect_csv_file(path):
     """Function that collects all the .csv filenames in the data folder.
+
+    :param list: Input that is a string for a directory path
 
     :returns: list(str) of all .csv filenames
     :raises ImportError: error raised if import module not found
@@ -15,7 +17,7 @@ def collect_csv_file():
     %(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %pi')
     logging.info("Import glob")
     try:
-        filenames = glob.glob('data/*csv')
+        filenames = glob.glob(path + '*csv')
     except TypeError:
         print("No files of *.csv type")
         logging.error('Check that your data directory has *.csv files')

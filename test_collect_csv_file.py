@@ -11,13 +11,13 @@ def test_exceptions():
 
 def test_filenames_not_empty():
     from collect_csv_file import collect_csv_file
-    names = collect_csv_file()
+    names = collect_csv_file('data/')
     if names is not None:
         assert True
 
 
 def test_list_of_strings():
     from collect_csv_file import collect_csv_file
-    names = collect_csv_file()
+    names = collect_csv_file('data/')
     tester = ['string', 'string3']
     assert type(names) == type(tester)
