@@ -25,6 +25,7 @@ class HrmClass():
     def __init__(self, name, time, voltage, interval=[0, 0], logger=None):
         self.logger = logging.getLogger(__name__)
         self.logger.info('Initialize Class')
+        self.logger.info('File is: ' + name + '.csv')
         nptype = "<class 'numpy.ndarray'>"
         try:
             str(type(name)) == "<class 'str'>"
