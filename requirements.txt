@@ -4,5 +4,3 @@ pytest-cov
 numpy
 pandas
 peakutils
-logging
-sphinx
