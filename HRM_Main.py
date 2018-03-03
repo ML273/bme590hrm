@@ -8,7 +8,7 @@ def main():
     for files in filenames:
         temp = pd.read_csv(files, delimiter=',', names=['time', 'volt'])
         hrm_info = createHRM_Class(files, temp)
-        #createJSON()
+        #  createJSON()
         
 def collect_csv():
     from collect_csv_file import collect_csv_file
