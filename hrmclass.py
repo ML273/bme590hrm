@@ -136,3 +136,4 @@ class HrmClass():
                 count += 1
         self.mean_hr_bpm = count*60/dur  # for bpm average
         self.logger.info('Set self.mean_hr_bpm')
+
