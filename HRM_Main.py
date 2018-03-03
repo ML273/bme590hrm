@@ -18,7 +18,7 @@ def collect_csv(path):
     from collect_csv_file import collect_csv_file
     return collect_csv_file(path)
 
-  
+
 def createHRM_Class(name, data):
     from hrmclass import HrmClass
     path, ext = os.path.splitext(name)
