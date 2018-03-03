@@ -5,7 +5,7 @@ def setup():
     import pandas as pd
     import numpy as np
     import glob
-    file1 = glob.glob('data/test_data1')
+    file1 = 'data/test_data1.csv'
     df = pd.read_csv(file1, names=['time', 'volt'])
     testClass = HrmClass('test', np.array(df.time), np.array(df.volt))
     return testClass
